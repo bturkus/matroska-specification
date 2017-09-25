@@ -133,16 +133,16 @@ Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
-There can be many Blocks in a BlockGroup provided they all have the same timecode. It is used with different parts of a frame with different priorities.
+There can be many Blocks in a BlockGroup provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
 #### Block Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
 | 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
+| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
 
 #### Block Header Flags
 
@@ -233,16 +233,16 @@ Size = 1 + (1-8) + 4 + (4 + (4)) octets. So from 6 to 21 octets.
 
 Bit 0 is the most significant bit.
 
-Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timecodes MAY NOT be consecutive. But a frame with a past timecode MUST reference a frame already known, otherwise it's considered bad/void.
+Frames using references SHOULD be stored in "coding order". That means the references first and then the frames referencing them. A consequence is that timestamps MAY NOT be consecutive. But a frame with a past timestamp MUST reference a frame already known, otherwise it's considered bad/void.
 
-There can be many `Block Elements` in a `BlockGroup` provided they all have the same timecode. It is used with different parts of a frame with different priorities.
+There can be many `Block Elements` in a `BlockGroup` provided they all have the same timestamp. It is used with different parts of a frame with different priorities.
 
 ##### SimpleBlock Header
 
 | Offset | Player | Description |
 |:-------|:-------|:------------|
 | 0x00+  | MUST   | Track Number (Track Entry). It is coded in EBML like form (1 octet if the value is < 0x80, 2 if < 0x4000, etc) (most significant bits set to increase the range). |
-| 0x01+  | MUST   | Timecode (relative to Cluster timecode, signed int16) |
+| 0x01+  | MUST   | Timestamp (relative to Cluster timestamp, signed int16) |
 
 ##### SimpleBlock Header Flags
 
